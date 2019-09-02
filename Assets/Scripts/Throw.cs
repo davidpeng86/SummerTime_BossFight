@@ -7,14 +7,15 @@ public class Throw : MonoBehaviour
     public Rigidbody skull;
     public Transform holder;
     public float force;
-    
+    public Transform shootDir;
     bool isShoot = false;
     bool returnBall = false;
     float time = 0f;
+    Camera cam;
     // Start is called before the first frame update
     void Start()
     {
-
+        cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class Throw : MonoBehaviour
                 skull.transform.parent = null;
                 skull.transform.GetComponent<TrailRenderer>().enabled = true;
                 skull.isKinematic = false;
-                skull.AddForce(transform.forward * force, ForceMode.Impulse);
+                skull.AddForce(shootDir.forward * force, ForceMode.Impulse);
                 isShoot = true;
             }
             else{
@@ -50,5 +51,4 @@ public class Throw : MonoBehaviour
             }
     }
 
-   
 }
