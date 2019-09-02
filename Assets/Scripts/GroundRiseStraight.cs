@@ -43,7 +43,7 @@ public class GroundRiseStraight : MonoBehaviour
         curTime += Time.deltaTime;
         if (curTime >= maxTime)
         {
-            Destroy(this.gameObject);
+            Destroy(this.transform.parent.gameObject);
         }
         else if (curTime >= maxTime / 2)
         {
