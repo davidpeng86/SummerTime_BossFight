@@ -10,7 +10,6 @@ public class BulletMotion : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddRelativeForce(Vector3.forward * force, ForceMode.Impulse);
     }
 
     // Update is called once per frame
@@ -25,6 +24,6 @@ public class BulletMotion : MonoBehaviour
         Vector3 newDir = Vector3.Reflect(curDir, contactPoint.normal);
         // transform.rotation = Quaternion.FromToRotation(curDir, newDir);
         // print(rb.GetPointVelocity(transform.position));
-        rb.AddForce(contactPoint.normal * force/2, ForceMode.Impulse);
+        rb.AddForce(contactPoint.normal * force, ForceMode.Impulse);
     }
 }
