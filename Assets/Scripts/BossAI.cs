@@ -5,14 +5,17 @@ using UnityEngine;
 public class BossAI : MonoBehaviour
 {
     enum State { Idle, GroundAttackStraight, GroundAttckCurve, Rolling };
-    public int hp;
+    public int hp = 50;
+    public float rotateDelay = 0.5f;
     public GameObject groundAttackCurve;
     public GameObject groundAttackStraight;
 
     private State state;
     private GameObject player;
-    
+    private BossRotate bossRotate;
+
     private Rigidbody rigid;
+    private float rotateTime;
     private float stateCurTime;
     private float stateMaxTime;
 
@@ -21,6 +24,7 @@ public class BossAI : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rigid = GetComponent<Rigidbody>();
+        bossRotate = gameObject.GetComponent<BossRotate>();
         state = State.Idle;
         stateCurTime = 0;
         RandomStateMaxTime();
@@ -55,10 +59,8 @@ public class BossAI : MonoBehaviour
                 Idle();
                 break;
             case State.GroundAttackStraight:
-                GroundAttackStraight();
                 break;
             case State.GroundAttckCurve:
-                GroundAttackCurve();
                 break;
             case State.Rolling:
                 Rolling();
@@ -70,12 +72,12 @@ public class BossAI : MonoBehaviour
     
     private void RandomStateMaxTime()
     {
-        stateMaxTime = Random.Range(3, 3);
+        stateMaxTime = Random.Range(4, 6);
     }
 
     private void RandomState()
     {
-        int rnd = Random.Range(2, 4);
+        int rnd = Random.Range(1, 5);
         switch (rnd)
         {
             case 1:
@@ -94,6 +96,7 @@ public class BossAI : MonoBehaviour
                 break;
             case 4:
                 state = State.Rolling;
+                rotateTime = 0;
                 Debug.Log("Boss Rolling");
                 break;
             default:
@@ -106,19 +109,14 @@ public class BossAI : MonoBehaviour
         //Debug.Log("Boss Idle");
     }
 
-    private void GroundAttackStraight()
-    {
-        //Debug.Log("Boss GroundAttackStraight");
-    }
-
-    private void GroundAttackCurve()
-    {
-        // Instantiate(groundAttackCurve, player.transform.position, new Quaternion());
-        // Debig.Log("Boss GroundAttackCurve");
-    }
-
     private void Rolling()
     {
-        //Debug.Log("Boss Rolling");
+        rotateTime += Time.deltaTime;
+        if (rotateTime > rotateDelay)
+        {
+            rotateTime = 0;
+            bossRotate.Rolling();
+        }
     }
+    
 }
