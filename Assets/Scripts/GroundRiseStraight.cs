@@ -8,24 +8,24 @@ public class GroundRiseStraight : MonoBehaviour
 
     public float maxHeight = 4.0f;
     public float riseSpeed = 1.0f;
+    public float maxTime = 3;
 
     private float initHeight;
     private float curHeight;
+    private float curTime;
     private State state;
     // Start is called before the first frame update
     void Start()
     {
         initHeight = transform.position.y;
-        state = State.Idle;
+        state = State.Overlap;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetMouseButton(0)) state = State.Overlap;
-        else state = State.Idle;
-
+        updateState();
+        
         curHeight = transform.position.y - initHeight;
         
         if(state == State.Overlap && curHeight < maxHeight)
@@ -35,6 +35,19 @@ public class GroundRiseStraight : MonoBehaviour
         else if(state == State.Idle && curHeight > 0)
         {
             transform.position -= transform.up * riseSpeed * Time.deltaTime;
+        }
+    }
+
+    private void updateState()
+    {
+        curTime += Time.deltaTime;
+        if (curTime >= maxTime)
+        {
+            Destroy(this.gameObject);
+        }
+        else if (curTime >= maxTime / 2)
+        {
+            state = State.Idle;
         }
     }
 }
