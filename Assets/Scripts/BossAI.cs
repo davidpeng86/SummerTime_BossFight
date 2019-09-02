@@ -5,10 +5,13 @@ using UnityEngine;
 public class BossAI : MonoBehaviour
 {
     enum State { Idle, GroundAttackStraight, GroundAttckCurve, Rolling };
-    public int Hp;
+    public int hp;
+    public GameObject groundAttackCurve;
+    public GameObject groundAttackStraight;
 
     private State state;
     private GameObject player;
+    
     private Rigidbody rigid;
     private float stateCurTime;
     private float stateMaxTime;
@@ -72,7 +75,7 @@ public class BossAI : MonoBehaviour
 
     private void RandomState()
     {
-        int rnd = Random.Range(1, 4);
+        int rnd = Random.Range(2, 4);
         switch (rnd)
         {
             case 1:
@@ -81,11 +84,13 @@ public class BossAI : MonoBehaviour
                 break;
             case 2:
                 state = State.GroundAttackStraight;
+                Instantiate(groundAttackStraight, player.transform.position, new Quaternion());
                 Debug.Log("Boss GroundAttackStraight");
                 break;
             case 3:
                 state = State.GroundAttckCurve;
-                Debug.Log("Boss GroundAttackStraight");
+                Instantiate(groundAttackCurve, player.transform.position, new Quaternion());
+                Debug.Log("Boss GroundAttackCurve");
                 break;
             case 4:
                 state = State.Rolling;
@@ -108,8 +113,8 @@ public class BossAI : MonoBehaviour
 
     private void GroundAttackCurve()
     {
-        //Debug.Log("Boss GroundAttackStraight");
-
+        // Instantiate(groundAttackCurve, player.transform.position, new Quaternion());
+        // Debig.Log("Boss GroundAttackCurve");
     }
 
     private void Rolling()

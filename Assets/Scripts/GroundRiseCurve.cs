@@ -8,22 +8,26 @@ public class GroundRiseCurve : MonoBehaviour
 
     public float maxHeight = 4.0f;
     public float riseSpeed = 1.0f;
-    public float curveRate = 0.01f;
+    public float curveRate = 1.0f;
+    public float maxTime = 3;
 
     private float r = 0;
     private float initHeight;
     private float curHeight;
+    private float curTime;
     private State state;
     // Start is called before the first frame update
     void Start()
     {
         initHeight = transform.position.y;
-        state = State.Idle;
+        state = State.Overlap;
+        curTime = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        updateState();
         curHeight = transform.position.y - initHeight;
         r = Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position);
 
@@ -37,8 +41,16 @@ public class GroundRiseCurve : MonoBehaviour
         }
     }
 
-    public void Attack()
+    private void updateState()
     {
-
+        curTime += Time.deltaTime;
+        if(curTime >= maxTime)
+        {
+            Destroy(this.gameObject);
+        }
+        else if (curTime >= maxTime / 2)
+        {
+            state = State.Idle;
+        }
     }
 }
