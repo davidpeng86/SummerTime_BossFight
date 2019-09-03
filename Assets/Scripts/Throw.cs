@@ -27,7 +27,8 @@ public class Throw : MonoBehaviour
                 skull.transform.parent = null;
                 skull.transform.GetComponent<TrailRenderer>().enabled = true;
                 skull.isKinematic = false;
-                skull.AddForce(shootDir.forward * force, ForceMode.Impulse);
+                skull.AddRelativeForce(shootDir.forward * force, ForceMode.Impulse);
+                print(skull.transform.rotation);
                 isShoot = true;
                 skull.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             }
