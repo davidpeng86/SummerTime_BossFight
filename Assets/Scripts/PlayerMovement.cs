@@ -6,7 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
     public int speed;
-    float rotateSpeed = 10f;
+    float rotateSpeed = 15f;
+    public Transform moveDirRef;
+    Transform movePivot;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,19 +22,40 @@ public class PlayerMovement : MonoBehaviour
         
         if(Input.GetKey(KeyCode.W)){
             FaceDir(Vector3.forward);
-            rb.velocity = Vector3.forward*speed;
+            if(moveDirRef != null){
+                rb.velocity = moveDirRef.forward*speed;
+            }
+            else{ 
+                rb.velocity = transform.forward*speed;
+            }
+            
         }
         if(Input.GetKey(KeyCode.S)){
             FaceDir(-Vector3.forward);
-            rb.velocity = -Vector3.forward*speed;
+            if(moveDirRef != null){
+                rb.velocity = -moveDirRef.forward*speed;
+            }
+            else{ 
+                rb.velocity = transform.forward*speed;
+            }
         }
         if(Input.GetKey(KeyCode.A)){
             FaceDir(Vector3.left);
-            rb.velocity = transform.forward*speed;
+            if(moveDirRef != null){
+                rb.velocity = -moveDirRef.right*speed;
+            }
+            else{ 
+                rb.velocity = transform.forward*speed;
+            }
         }
         if(Input.GetKey(KeyCode.D)){
             FaceDir(Vector3.right);
-            rb.velocity = transform.forward*speed;
+            if(moveDirRef != null){
+                rb.velocity = moveDirRef.right*speed;
+            }
+            else{ 
+                rb.velocity = transform.forward*speed;
+            }
         }
     }
 
