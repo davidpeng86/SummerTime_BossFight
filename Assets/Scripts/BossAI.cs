@@ -31,6 +31,7 @@ public class BossAI : MonoBehaviour
         state = State.Idle;
         stateCurTime = 0;
         RandomStateMaxTime();
+        rigid.freezeRotation = true;
     }
 
     // Update is called once per frame
@@ -46,7 +47,6 @@ public class BossAI : MonoBehaviour
 
         if(stateCurTime >= stateMaxTime)
         {
-            Debug.Log("----------Boss Switch State----------");
             stateCurTime = 0;
             RandomStateMaxTime();
             RandomState();
@@ -80,29 +80,25 @@ public class BossAI : MonoBehaviour
 
     private void RandomState()
     {
-        int rnd = Random.Range(2, 5);
+        int rnd = Random.Range(4, 5);
         switch (rnd)
         {
             case 1:
                 state = State.Idle;
-                Debug.Log("Boss Idle");
                 break;
             case 2:
                 state = State.GroundAttackStraight;
                 rigid.velocity = new Vector3(0, jumpVelocity, 0);
                 RandomAttackPosition(groundAttackStraight);
-                Debug.Log("Boss GroundAttackStraight");
                 break;
             case 3:
                 state = State.GroundAttckCurve;
                 rigid.velocity = new Vector3(0, jumpVelocity, 0);
                 RandomAttackPosition(groundAttackCurve);
-                Debug.Log("Boss GroundAttackCurve");
                 break;
             case 4:
                 state = State.Rolling;
                 rotateTime = 0;
-                Debug.Log("Boss Rolling");
                 break;
             default:
                 break;

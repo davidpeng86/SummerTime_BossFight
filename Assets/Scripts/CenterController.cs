@@ -14,6 +14,6 @@ public class CenterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
+        transform.position = new Vector3(transform.position.x, 2.0f, transform.position.z);
     }
 }
