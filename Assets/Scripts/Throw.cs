@@ -29,9 +29,11 @@ public class Throw : MonoBehaviour
                 skull.isKinematic = false;
                 skull.AddForce(shootDir.forward * force, ForceMode.Impulse);
                 isShoot = true;
+                skull.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             }
             else{
                 returnBall = true;
+                skull.collisionDetectionMode = CollisionDetectionMode.Discrete;
                 time = Time.time;
             }
         }
