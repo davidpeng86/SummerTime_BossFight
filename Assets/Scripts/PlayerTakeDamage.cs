@@ -18,7 +18,7 @@ public class PlayerTakeDamage : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        Vector3 direction = (transform.position - collision.transform.position - transform.forward).normalized;
+        Vector3 direction = (-transform.forward).normalized;
         if(collision.gameObject == boss)
         {
             rigid.velocity = direction * backVelocity;

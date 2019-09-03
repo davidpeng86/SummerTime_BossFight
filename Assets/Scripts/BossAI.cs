@@ -75,12 +75,12 @@ public class BossAI : MonoBehaviour
     
     private void RandomStateMaxTime()
     {
-        stateMaxTime = Random.Range(4, 6);
+        stateMaxTime = Random.Range(2, 3);
     }
 
     private void RandomState()
     {
-        int rnd = Random.Range(4, 5);
+        int rnd = Random.Range(2, 5);
         switch (rnd)
         {
             case 1:

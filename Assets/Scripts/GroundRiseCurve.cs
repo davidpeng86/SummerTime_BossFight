@@ -23,6 +23,7 @@ public class GroundRiseCurve : MonoBehaviour
         initHeight = transform.position.y;
         state = State.Prepare;
         curTime = 0f;
+        r = Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position);
     }
 
     // Update is called once per frame
@@ -30,7 +31,6 @@ public class GroundRiseCurve : MonoBehaviour
     {
         updateState();
         curHeight = transform.position.y - initHeight;
-        r = Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position);
 
         if (state == State.Up && curHeight <= maxHeight - (r * curveRate))
         {
