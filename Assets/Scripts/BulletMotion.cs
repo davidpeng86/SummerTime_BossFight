@@ -43,7 +43,7 @@ public class BulletMotion : MonoBehaviour
                 shakee.gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
             }
 
-            shakee.DOMove(shakee.position-shakeDir*shakeAmount,0.1f).OnComplete(() =>
+            shakee.DOMove(shakee.position-shakeDir*shakeAmount,0.25f).OnComplete(() =>
                             shakee.DOMove(returnPos,0.1f).OnComplete(() =>
                             shakee.gameObject.GetComponent<Renderer>().material.DisableKeyword("_EMISSION")));
         }
