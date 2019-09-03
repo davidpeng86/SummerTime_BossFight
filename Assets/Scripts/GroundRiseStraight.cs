@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class GroundRiseStraight : MonoBehaviour
 {
-    enum State { Idle, Overlap};
+    enum State { Prepare, Down, Up};
 
     public float maxHeight = 4.0f;
     public float riseSpeed = 1.0f;
-    public float maxTime = 3;
+    public float maxTime = 5.0f;
+    public float delayTime = 1.75f;
 
     private float initHeight;
     private float curHeight;
@@ -18,7 +19,7 @@ public class GroundRiseStraight : MonoBehaviour
     void Start()
     {
         initHeight = transform.position.y;
-        state = State.Overlap;
+        state = State.Prepare;
     }
 
     // Update is called once per frame
@@ -27,12 +28,11 @@ public class GroundRiseStraight : MonoBehaviour
         updateState();
         
         curHeight = transform.position.y - initHeight;
-        
-        if(state == State.Overlap && curHeight < maxHeight)
+        if(state == State.Up && curHeight < maxHeight)
         {
             transform.position += transform.up * riseSpeed * Time.deltaTime;
         }
-        else if(state == State.Idle && curHeight > 0)
+        else if(state == State.Down && curHeight > 0)
         {
             transform.position -= transform.up * riseSpeed * Time.deltaTime;
         }
@@ -41,13 +41,17 @@ public class GroundRiseStraight : MonoBehaviour
     private void updateState()
     {
         curTime += Time.deltaTime;
-        if (curTime >= maxTime)
+        if (curTime >= maxTime + delayTime)
         {
             Destroy(this.transform.parent.gameObject);
         }
-        else if (curTime >= maxTime / 2)
+        else if (curTime >= maxTime / 2 + delayTime)
         {
-            state = State.Idle;
+            state = State.Down;
+        }
+        else if(curTime >= delayTime)
+        {
+            state = State.Up;
         }
     }
 }
