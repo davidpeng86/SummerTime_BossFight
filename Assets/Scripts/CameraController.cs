@@ -26,6 +26,7 @@ public class CameraController : MonoBehaviour
         direction = Quaternion.Euler(fi, theta, 0) * new Vector3(1, 1, 0);
         transform.position = position + direction * d;
         transform.forward = -direction;
+        
     }
 
     void updateInfo()

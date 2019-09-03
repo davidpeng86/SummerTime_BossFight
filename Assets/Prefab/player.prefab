@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 568425720601958446}
   - component: {fileID: 568425720601958441}
   - component: {fileID: 568425720601958440}
+  - component: {fileID: 196810306151156864}
   - component: {fileID: 568425720601958434}
   m_Layer: 0
   m_Name: player
@@ -156,6 +157,20 @@ MonoBehaviour:
   holder: {fileID: 568425719272688912}
   force: 50
   shootDir: {fileID: 0}
+--- !u!114 &196810306151156864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568425720601958443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91dea2f3963b931409cf4f9022d58950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backVelocity: 15
+  riseVelocity: 12
 --- !u!54 &568425720601958434
 Rigidbody:
   m_ObjectHideFlags: 0
