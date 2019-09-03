@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
 
         updateInfo();
         
-        direction = Quaternion.Euler(-fi, -theta, 0) * target.transform.forward;
+        direction = Quaternion.Euler(fi, theta, 0) * new Vector3(1,1,0);
         transform.position = position + direction * d;
         transform.forward = -direction;
     }
@@ -32,8 +32,8 @@ public class CameraController : MonoBehaviour
     {
         Vector2 mousePosition = Input.mousePosition;
 
-        theta = mousePosition.x / Screen.height * 90;
-        fi = mousePosition.y / Screen.width * 90;
+        theta = mousePosition.x / Screen.width * 360;
+        fi = mousePosition.y / Screen.height * 90;
         
         d -= Input.GetAxis("Mouse ScrollWheel") * scrollSpeed;
     }
