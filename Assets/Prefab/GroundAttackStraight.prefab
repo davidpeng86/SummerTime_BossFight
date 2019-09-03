@@ -107,6 +107,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &1061081964978658886
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +215,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &2377801326434243038
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +323,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &2470101922410946529
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +477,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &3312327667073794170
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +585,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &4193368664095844729
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +693,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &4658984620326736244
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +801,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &4959825478750684408
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,6 +909,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &6101927078701812343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,6 +1017,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &6129733849978695902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,6 +1125,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &6726619017314784244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,6 +1233,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &6830298976181675933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1341,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &7197086410377600309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,6 +1449,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &7583394820027036857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,6 +1557,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &8824631794315841448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,6 +1665,7 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75
 --- !u!1 &8886152676772791125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,3 +1773,4 @@ MonoBehaviour:
   maxHeight: 2
   riseSpeed: 20
   maxTime: 3
+  delayTime: 1.75

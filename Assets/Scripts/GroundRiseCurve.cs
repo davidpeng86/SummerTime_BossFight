@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class GroundRiseCurve : MonoBehaviour
 {
-    enum State { Idle, Overlap };
+    enum State { Prepare, Up, Down };
 
     public float maxHeight = 4.0f;
     public float riseSpeed = 1.0f;
     public float curveRate = 1.0f;
     public float maxTime = 3;
+    public float delayTime = 1.75f;
 
     private float r = 0;
     private float initHeight;
@@ -20,7 +21,7 @@ public class GroundRiseCurve : MonoBehaviour
     void Start()
     {
         initHeight = transform.position.y;
-        state = State.Overlap;
+        state = State.Prepare;
         curTime = 0f;
     }
 
@@ -31,11 +32,11 @@ public class GroundRiseCurve : MonoBehaviour
         curHeight = transform.position.y - initHeight;
         r = Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position);
 
-        if (state == State.Overlap && curHeight <= maxHeight - (r * curveRate))
+        if (state == State.Up && curHeight <= maxHeight - (r * curveRate))
         {
             transform.position += transform.up * riseSpeed * Time.deltaTime;
         }
-        else if (state == State.Idle && curHeight >= 0)
+        else if (state == State.Down && curHeight >= 0)
         {
             transform.position -= transform.up * riseSpeed * Time.deltaTime;
         }
@@ -44,13 +45,16 @@ public class GroundRiseCurve : MonoBehaviour
     private void updateState()
     {
         curTime += Time.deltaTime;
-        if(curTime >= maxTime)
+        if(curTime >= maxTime + delayTime)
         {
             Destroy(this.transform.parent.gameObject);
         }
-        else if (curTime >= maxTime / 2)
+        else if (curTime >= maxTime / 2 + delayTime)
         {
-            state = State.Idle;
+            state = State.Down;
+        }else if(curTime >= delayTime)
+        {
+            state = State.Up;
         }
     }
 }
