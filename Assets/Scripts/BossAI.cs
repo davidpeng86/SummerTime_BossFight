@@ -80,7 +80,7 @@ public class BossAI : MonoBehaviour
 
     private void RandomState()
     {
-        int rnd = Random.Range(2, 3);
+        int rnd = Random.Range(2, 5);
         switch (rnd)
         {
             case 1:
