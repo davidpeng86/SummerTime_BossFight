@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class ObstacleManager : MonoBehaviour
 {
     ObstacleEmission[] emit;
     int bossHp;
     int hpCalc;
+
+    public TextMeshProUGUI Obst;
 
     Camera cam;
     // Start is called before the first frame update
@@ -30,5 +32,6 @@ public class ObstacleManager : MonoBehaviour
     void LateUpdate(){
         bossHp = hpCalc;
         print(bossHp);
+        Obst.text = bossHp.ToString();
     }
 }
