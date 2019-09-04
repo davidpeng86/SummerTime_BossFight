@@ -25,7 +25,7 @@ ModelImporter:
     4300000: ghost
     4300002: ghost_hands_01
     4300004: ghost_hands_02
-    7400000: Throw_new
+    7400000: Throw
     9500000: //RootNode
     13700000: ghost
   externalObjects: {}
@@ -57,10 +57,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Throw_new
+      name: Throw
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 10
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

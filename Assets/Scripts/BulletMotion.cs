@@ -43,9 +43,23 @@ public class BulletMotion : MonoBehaviour
                 shakee.gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
             }
 
-            shakee.DOMove(shakee.position-shakeDir*shakeAmount,0.25f).OnComplete(() =>
-                            shakee.DOMove(returnPos,0.1f).OnComplete(() =>
-                            shakee.gameObject.GetComponent<Renderer>().material.DisableKeyword("_EMISSION")));
+            if(shakee.gameObject.GetComponent<ObstacleEmission>()!= null){
+                if(!shakee.gameObject.GetComponent<ObstacleEmission>().isDead){
+                    shakee.DOMove(shakee.position-shakeDir*shakeAmount,0.25f).OnComplete(() =>
+                                    shakee.DOMove(returnPos,0.1f).OnComplete(() =>
+                                    shakee.gameObject.GetComponent<ObstacleEmission>().Bling()));
+                }
+                else{
+                    shakee.DOMove(shakee.position-shakeDir*shakeAmount*0.6f,0.15f).OnComplete(() =>
+                                    shakee.DOMove(returnPos,0.07f).OnComplete(() =>
+                                    shakee.gameObject.GetComponent<ObstacleEmission>().Bling()));
+                }
+            }
+            else{
+                shakee.DOMove(shakee.position-shakeDir*shakeAmount,0.25f).OnComplete(() =>
+                                shakee.DOMove(returnPos,0.1f).OnComplete(() =>
+                                shakee.gameObject.GetComponent<Renderer>().material.DisableKeyword("_EMISSION")));
+            }
         }
             rb.AddForce(contactPoint.normal * force, ForceMode.Impulse);
     }
