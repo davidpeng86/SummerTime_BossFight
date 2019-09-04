@@ -912,6 +912,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_top
       objectReference: {fileID: 0}
+    - target: {fileID: 273422848048003561, guid: 8a1454ecd9c14144293d6e4b08cb1c78,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 273422848048003565, guid: 8a1454ecd9c14144293d6e4b08cb1c78,
         type: 3}
       propertyPath: m_LocalPosition.x
