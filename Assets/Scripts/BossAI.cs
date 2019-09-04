@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossAI : MonoBehaviour
 {
@@ -23,6 +25,9 @@ public class BossAI : MonoBehaviour
     private float stateCurTime;
     private float stateMaxTime;
 
+    public CameraShaker cs;
+    bool sceneChange = false;
+    public Image image;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +43,22 @@ public class BossAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hp == 0) bossDie();
+        if (hp <= 0) bossDie();
         updateStateTime();
         updateState();
         
+    }
+
+    private void FixedUpdate()
+    {
+        if (sceneChange) {
+            Color tempCol = image.color;
+            tempCol.a += (1 / 3f) * (1 / 50f);
+            image.color = tempCol;
+        }
+        if (image.color.a > 1f) {
+            SceneManager.LoadScene("shiz_scene");
+        }
     }
 
     private void updateStateTime()
@@ -159,5 +176,8 @@ public class BossAI : MonoBehaviour
     private void bossDie()
     {
         // 
+        CameraShaker.shouldShake = true;
+        cs.duration = 5f;
+        sceneChange = true;
     }
 }
