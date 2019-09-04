@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class BossAI : MonoBehaviour
 {
-    enum State { Idle, GroundAttackStraight, GroundAttckCurve, Rolling };
-    public int hp = 50;
+    enum State { Idle, GroundAttack, GroundAttackStraight, GroundAttckCurve, Rolling };
+    public int hp = 20;
     public float rotateDelay = 0.5f;
     public float jumpVelocity = 10.0f;
     public GameObject groundAttackCurve;
     public GameObject groundAttackStraight;
+    public GameObject groundAttack;
     public int attackNum = 5;
     public int attackRange = 1000;
 
@@ -37,8 +38,10 @@ public class BossAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hp == 0) bossDie();
         updateStateTime();
         updateState();
+        
     }
 
     private void updateStateTime()
@@ -61,10 +64,6 @@ public class BossAI : MonoBehaviour
             case State.Idle:
                 Idle();
                 break;
-            case State.GroundAttackStraight:
-                break;
-            case State.GroundAttckCurve:
-                break;
             case State.Rolling:
                 Rolling();
                 break;
@@ -75,33 +74,44 @@ public class BossAI : MonoBehaviour
     
     private void RandomStateMaxTime()
     {
-        stateMaxTime = Random.Range(4, 6);
+        stateMaxTime = Random.Range(2, 3);
     }
 
     private void RandomState()
     {
-        int rnd = Random.Range(4, 5);
-        switch (rnd)
+        int rnd = Random.Range(1, 5);
+        bool label = true;
+        while (label)
         {
-            case 1:
-                state = State.Idle;
-                break;
-            case 2:
-                state = State.GroundAttackStraight;
-                rigid.velocity = new Vector3(0, jumpVelocity, 0);
-                RandomAttackPosition(groundAttackStraight);
-                break;
-            case 3:
-                state = State.GroundAttckCurve;
-                rigid.velocity = new Vector3(0, jumpVelocity, 0);
-                RandomAttackPosition(groundAttackCurve);
-                break;
-            case 4:
-                state = State.Rolling;
-                rotateTime = 0;
-                break;
-            default:
-                break;
+            label = false;
+            switch (rnd)
+            {
+                case 1:
+                    state = State.GroundAttackStraight;
+                    rigid.velocity = new Vector3(0, jumpVelocity, 0);
+                    RandomAttackPosition(groundAttack);
+                    break;
+                case 2:
+                    state = State.GroundAttackStraight;
+                    rigid.velocity = new Vector3(0, jumpVelocity, 0);
+                    RandomAttackPosition(groundAttackStraight);
+                    break;
+                case 3:
+                    state = State.GroundAttckCurve;
+                    rigid.velocity = new Vector3(0, jumpVelocity, 0);
+                    RandomAttackPosition(groundAttackCurve);
+                    break;
+                case 4:
+                    state = State.Rolling;
+                    if (Mathf.Abs(transform.position.x) > 10 || Mathf.Abs(transform.position.z) > 10)
+                    {
+                        label = true;
+                    }
+                    rotateTime = 0;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
@@ -135,5 +145,19 @@ public class BossAI : MonoBehaviour
             bossRotate.Rolling();
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "bullet")
+        {
+            hp--;
+            Debug.Log(hp);
+        }
+       
+    }
     
+    private void bossDie()
+    {
+        // 
+    }
 }
