@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
 --- !u!1 &683894180941415269
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
 --- !u!1 &1307009564428955040
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
 --- !u!1 &1924575749009117283
@@ -370,6 +370,7 @@ Transform:
   - {fileID: 8201763801452249871}
   - {fileID: 1339798110432500807}
   - {fileID: 1604222722722491410}
+  - {fileID: 5844343277916558803}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -479,9 +480,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
+--- !u!1 &2804660150065520864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5844343277916558803}
+  - component: {fileID: 7403704563038035013}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Wall
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5844343277916558803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2804660150065520864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2119469606374362122}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7403704563038035013
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2804660150065520864}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.1, y: 1.1, z: 4.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3075532743641873382
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,7 +633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
 --- !u!1 &3349595708628445752
@@ -697,7 +742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
 --- !u!1 &4017089687782784121
@@ -806,7 +851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
 --- !u!1 &4155817566815023746
@@ -915,7 +960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
 --- !u!1 &6568790936005293078
@@ -1024,7 +1069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
 --- !u!1 &6927431718670163002
@@ -1133,7 +1178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
 --- !u!1 &7204942190909668667
@@ -1242,7 +1287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
 --- !u!1 &7454286266586622220
@@ -1351,7 +1396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
 --- !u!1 &7646268729940780589
@@ -1460,7 +1505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
 --- !u!1 &7721370245753314426
@@ -1569,7 +1614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
 --- !u!1 &8028435398756404103
@@ -1678,7 +1723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8
 --- !u!1 &9168746106852753403
@@ -1787,6 +1832,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   riseSpeed: 10
-  curveRate: 0.8
+  curveRate: 0.7
   maxTime: 3
   delayTime: 0.8

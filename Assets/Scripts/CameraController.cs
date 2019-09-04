@@ -12,11 +12,20 @@ public class CameraController : MonoBehaviour
     
     GameObject boss;
     Material bossMaterial;
+    CameraShaker shaker;
     // Start is called before the first frame update
     void Start()
     {
+        Vector3 position = target.transform.position;
+        Vector3 direction;
+
         boss = GameObject.FindGameObjectWithTag("boss");
         bossMaterial = boss.GetComponent<Renderer>().sharedMaterial;
+        shaker = gameObject.GetComponent<CameraShaker>();
+
+        direction = Quaternion.Euler(0, theta, 0) * new Vector3(1.0f, 0.8f, 0).normalized;
+        transform.position = position + direction * d;
+        transform.forward = -direction;
     }
 
     // Update is called once per frame
@@ -26,10 +35,10 @@ public class CameraController : MonoBehaviour
         Vector3 direction;
 
         updateInfo();
-
         direction = Quaternion.Euler(0, theta, 0) * new Vector3(1.0f, 0.8f, 0).normalized;
         transform.position = position + direction * d;
         transform.forward = -direction;
+        shaker.Update();
         
         bool hit;
         RaycastHit raycastHit;

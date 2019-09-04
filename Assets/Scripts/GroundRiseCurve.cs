@@ -52,8 +52,10 @@ public class GroundRiseCurve : MonoBehaviour
         else if (curTime >= maxTime / 2 + delayTime)
         {
             state = State.Down;
-        }else if(curTime >= delayTime)
+        }
+        else if(curTime >= delayTime && state == State.Prepare)
         {
+            CameraShaker.shouldShake = true;
             state = State.Up;
         }
     }
